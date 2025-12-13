@@ -32,7 +32,7 @@ System.out.println("The total amount of CO2 equivilance is "+d);
 
     public void investigateArray(int[]ints,int number){
 
-        if(ints.length==0  || number==0){System.out.println("No empty array or empty values is accepted");
+        if(ints.length==0  || ints==null){System.out.println("No empty array or empty values is accepted");
         return;}
 
 
@@ -42,13 +42,10 @@ System.out.println("The total amount of CO2 equivilance is "+d);
 
         for (int anInt : ints) {
 
-            if (anInt < 0) {
-                negCount++;
-            }
-            if (anInt > largest) {
-                largest = anInt;
-            }
-            if (anInt % number == 0) {
+            if (anInt < 0) negCount++;
+            if (anInt > largest)largest = anInt;
+
+            if (anInt % number == 0 || number!=0) {
                 System.out.println(anInt + " Is divisable by " + number);
             }
             sum+=anInt;
@@ -74,6 +71,8 @@ public void guessTheAnimal(ArrayList<String>animals){
                 String next2 =scanner.nextLine();
                 if(next2.isEmpty()){
                     System.out.println("Cannot have empty String");
+                    break;
+
                 }
                 for( String v: animals){
 
@@ -93,7 +92,7 @@ public void guessTheAnimal(ArrayList<String>animals){
 
 
 
-        }while(next1.equals("2") ||scanner.nextLine()==null );
+        }while(!next1.equals("2") ||scanner.nextLine()==null );
 
 }
 
